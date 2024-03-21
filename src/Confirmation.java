@@ -1,16 +1,12 @@
 import java.util.Scanner;
 
 class Confirmation {
+    public static void enter(Scanner s, Double HLimit, Double HStart) {
 
-    public static boolean EnterPressed (Scanner Scan, Double LimitHours, Double StartFromHours) {
-
-        System.out.println("\nLimit: " + LimitHours + " hour(-s)" +  "\nStart from: " + StartFromHours + " seconds(-s)\n");
-
-        System.out.println("Press Enter to start the timer");
-        Scan.nextLine();
-
-        return true;
+        System.out.println("\nLimit: " + HLimit + " hour(-s)" + " | Start: " + HStart + " hour(-s)\n");
+        System.out.print("Press Enter to start the timer ");
+        s.nextLine();
+        System.out.print("\n");
 
     }
-
 }

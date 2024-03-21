@@ -1,25 +1,22 @@
-import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class CallworkTimer {
     public static void main(String[] args) {
 
-        Scanner Scan = new Scanner(System.in);
-        DecimalFormat decimalFormat = new DecimalFormat("#.####"), Percentage = new DecimalFormat("#.#");
-        Double LimitHours = 0.0, StartFromHours = 0.0;
-        final Double HourInSeconds = 3600.0, MinuteInSeconds = 60.0;
-
         while (true) {
+            final Double SHour = 3600.0, SMinute = 60.0;
+            Double HLimitInput = 0.0, HStartInput = 0.0;
+            Scanner s = new Scanner(System.in);
+            DecimalFormat df = new DecimalFormat("#.####"), percent = new DecimalFormat("#.#");
 
-            Double[] Settings = StartSettings.settings(Scan, LimitHours, StartFromHours);
-            LimitHours = Settings[0]; StartFromHours = Settings[1];
+            final Double HLimit = Settings.limit(s, HLimitInput);
+            Double HStart = Settings.start(s, HStartInput, HLimit);
 
-            Confirmation.EnterPressed(Scan, LimitHours, StartFromHours);
+            Confirmation.enter(s, HLimit, HStart);
 
-            TimeCounter.Counter(decimalFormat, Percentage, LimitHours, StartFromHours, HourInSeconds, MinuteInSeconds);
-
+            TimeCounter.counter(s, df, percent, HLimit, HStart, SHour, SMinute);
         }
 
     }
-
 }
